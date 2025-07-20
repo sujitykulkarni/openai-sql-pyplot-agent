@@ -45,7 +45,15 @@ The project follows a client-server architecture using the Model Context Protoco
 - Azure SQL Database
 - Required Python packages (see `requirements.txt`)
 
-## Installation
+## ⚠️ IMPORTANT: Updated MCP Server Setup
+
+This repository includes an **updated version** of the SQL MCP server with support for multiple authentication methods. The original Azure SQL-AI-samples repository only supports Azure AD authentication, but this enhanced version adds support for:
+
+- **SQL Server Authentication** (username/password)
+- **Windows Authentication** (NTLM)
+- **Azure AD Authentication** (original method)
+
+### Setup Instructions:
 
 1. **Clone the repository**:
    ```bash
@@ -58,13 +66,34 @@ The project follows a client-server architecture using the Model Context Protoco
    pip install -r requirements.txt
    ```
 
-3. **Install Node.js dependencies** (for SQL MCP server):
+3. **Set up the enhanced MCP server**:
    ```bash
-   cd MssqlMcp/Node
+   # Clone the original SQL-AI-samples repository
+   git clone https://github.com/Azure-Samples/SQL-AI-samples.git repo/SQL-AI-samples
+   
+   # Navigate to the Node.js MCP server directory
+   cd repo/SQL-AI-samples/MssqlMcp/Node
+   
+   # Install dependencies
    npm install
+
+   After the build is successful, locate the index.js file within the newly created dist folder. Copy and save its fully qualified path. you will need in an upcoming step.
+
+   
+   # ⚠️ CRITICAL: Replace the generated index.js with our updated version
+   # Copy the enhanced index.ts from this repository to replace the original
+   cp ../../../index.ts src/index.ts
+   
    ```
 
-4. **Configure environment variables**:
+4. **Verify the enhanced features**:
+   The enhanced `index.ts` file includes:
+   - Multi-authentication support (SQL, Windows, Azure AD)
+   - Better error handling and debugging
+   - Configurable connection timeouts
+   - Enhanced logging for troubleshooting
+
+5. **Configure environment variables**:
    Create a `.env` file in the root directory:
    ```env
    # Azure OpenAI Configuration
@@ -122,15 +151,18 @@ sql-mcp-integration/
 ├── program.py                      # Main application entry point
 ├── sql_system_instructions.txt     # AI agent system instructions
 ├── requirements.txt                # Python dependencies
+├── index.ts                        # Enhanced MCP server with multi-auth support
 ├── .env                           # Environment variables (create this)
 ├── readme.md                      # This documentation
-└── MssqlMcp/
-    └── Node/
-        ├── dist/
-        │   └── index.js           # Compiled SQL MCP server
-        ├── src/                   # Source code
-        ├── package.json           # Node.js dependencies
-        └── tsconfig.json          # TypeScript configuration
+└── repo/
+    └── SQL-AI-samples/            # Original Azure SQL-AI-samples repository
+        └── MssqlMcp/
+            └── Node/
+                ├── dist/
+                │   └── index.js   # Compiled SQL MCP server (replace with enhanced version)
+                ├── src/           # Source code
+                ├── package.json   # Node.js dependencies
+                └── tsconfig.json  # TypeScript configuration
 ```
 
 ## Configuration Options
