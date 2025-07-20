@@ -202,32 +202,9 @@ sql-mcp-integration/
 3. **Authentication errors**: Verify SQL credentials and permissions
 4. **MCP server errors**: Check the Node.js MCP server logs
 
-### Debug Mode
-
-Enable debug logging by modifying the Python code:
-```python
-import logging
-logging.basicConfig(level=logging.DEBUG)
-```
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests if applicable
-5. Submit a pull request
-
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Support
-
-For issues and questions:
-1. Check the troubleshooting section
-2. Review Azure SQL and OpenAI documentation
-3. Open an issue in the repository
 
 ## Related Documentation
 
