@@ -1,0 +1,3 @@
+[submodule "repo/SQL-AI-samples"]
+	path = repo/SQL-AI-samples
+	url = https://github.com/Azure-Samples/SQL-AI-samples.git
