@@ -1,3 +1,5 @@
 openai-agents==0.0.19
 openai>=1.70.0
 python-dotenv>=1.0.1
+chainlit
+matplotlib
