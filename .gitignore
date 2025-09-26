@@ -4,6 +4,7 @@ venv/
 env/
 .venv/
 .env
+.env-template
 
 # Python
 __pycache__/
@@ -26,6 +27,7 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+.chainlit/
 
 # Node.js
 node_modules/
@@ -46,3 +48,5 @@ Thumbs.db
 
 # Logs
 *.log
+
+.files/
